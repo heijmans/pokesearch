@@ -1,3 +1,5 @@
+jest.mock('./service');
+
 import { mount } from 'enzyme';
 import React from 'react';
 import App from './app';
@@ -14,7 +16,7 @@ it('search', async () => {
   const search = q => w.find('input').prop('onChange')({ target: { value: q }});
   const img = () => w.find('img');
 
-  service.getCards = jest.fn().mockReturnValue(Promise.resolve(cards));
+  service.getCards.mockReturnValue(Promise.resolve(cards));
   await search('bulb');
   expect(img().length).toBe(2);
   expect(img().at(0).prop('src')).toBe('bulb.png');
