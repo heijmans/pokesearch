@@ -1,0 +1,7 @@
+https://api.pokemontcg.io/v1/cards?name=bulb
+
+fix jest in intellij
+add in app.spec.js:
+/** @jest-environment jsdom */
+
+
